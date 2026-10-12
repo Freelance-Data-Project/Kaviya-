@@ -109,3 +109,21 @@ fbq('track', 'PageView');
   <script src="script.js"></script>
 </body>
 </html>
+// script.js
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const buttons = document.querySelectorAll(".subscribe-btn, .apply-btn, #subscribe, #applyNow");
+
+    buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+
+            // Meta Pixel Subscribe Event
+            if (typeof fbq === "function") {
+                fbq("track", "Subscribe");
+            }
+
+        });
+    });
+
+});
